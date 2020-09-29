@@ -16,13 +16,8 @@ enum symbol {
 	FACTOR,
 };
 
-typedef struct t_value {
-	union u_v {
-		int i;
-		double d;
-	} v;
-	int t;
-} V;
+typedef enum {INT_VAL, ADD, MUL} NODE_NAME;
+typedef struct node {NODE_NAME name; int val; struct node *left; struct node *right;} NODE;
 
 #define ACC 999
 #define NUM_SYM 12  // the number of symbols
@@ -30,8 +25,8 @@ typedef struct t_value {
 #define NUM_RULE 3  // the number of rules
 #define TK_START 256 // the start number of token
 #define ST_SIZE 1000
-#define INTEGER 0 // Type Integer Flag
-#define DOUBLE  1 // Type Double Flag
+
+// extern NODE *value[1000];
 
 extern const int action[NUM_SYM][NUM_TK];
 extern const int go_to[NUM_SYM][NUM_RULE];
@@ -39,12 +34,12 @@ extern const int prod_left[NUM_TK + 1];
 extern const int prod_length[NUM_TK + 1];
 
 extern int stack[ST_SIZE];
-extern V value[ST_SIZE];
+extern int value[ST_SIZE];
 extern char yybuffer[ST_SIZE];
 extern int pos; // input position
 extern int top;
 extern int sym;
-extern V yyvalue;
+extern int yyvalue;
 
 char pos_getchar(); // pos++; return getchar();
 void push(int);
@@ -56,13 +51,6 @@ void yywarning(char*);
 void yyparse();
 int yylex();
 
-/**
- * If the type is different, a warning is output.
- * @param {V*} a
- * @param {V*} b
- * @param {int} type; // PLUS, STAR
- **/
-V calc(V*, V*, int);
-
+NODE *makenode(NODE_NAME name, int v, NODE *left, NODE *right);
 #endif
 

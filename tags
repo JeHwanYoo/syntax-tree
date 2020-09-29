@@ -38,6 +38,7 @@ TK_START	lrparser.h	/^#define TK_START /;"	d
 __LRPARSER_H	lrparser.h	/^#define __LRPARSER_H$/;"	d
 action	lrparser.c	/^const int action[NUM_SYM][NUM_TK] = {$/;"	v	typeref:typename:const int[][]
 all	Makefile	/^all : $(TARGET)$/;"	t
+calc	lrparser.c	/^V calc(V* a, V* b, int op) {$/;"	f	typeref:typename:V
 ch	lrparser.c	/^static char ch = ' ';$/;"	v	typeref:typename:char	file:
 clean	Makefile	/^clean:$/;"	t
 cleand	Makefile	/^cleand:$/;"	t
@@ -45,6 +46,8 @@ echo	Makefile	/^echo:$/;"	t
 go_to	lrparser.c	/^const int go_to[NUM_SYM][NUM_RULE] = {$/;"	v	typeref:typename:const int[][]
 lexerr	lrparser.c	/^void lexerr(char *msg) {$/;"	f	typeref:typename:void
 main	main.c	/^int main(void) {$/;"	f	typeref:typename:int
+pos	lrparser.c	/^int pos = -1; \/\/ input position$/;"	v	typeref:typename:int
+pos_getchar	lrparser.c	/^char pos_getchar() {$/;"	f	typeref:typename:char
 prod_left	lrparser.c	/^const int prod_left[NUM_TK+1] = {0, EXPRESSION, EXPRESSION, TERM, TERM, FACTOR, FACTOR};$/;"	v	typeref:typename:const int[]
 prod_length	lrparser.c	/^const int prod_length[NUM_TK+1] = {0, 3, 1, 3, 1, 3, 1};$/;"	v	typeref:typename:const int[]
 push	lrparser.c	/^void push(int i) {$/;"	f	typeref:typename:void
@@ -60,4 +63,6 @@ yybuffer	lrparser.c	/^char yybuffer[ST_SIZE];$/;"	v	typeref:typename:char[]
 yyerr	lrparser.c	/^void yyerr(char *msg) {$/;"	f	typeref:typename:void
 yylex	lrparser.c	/^int yylex() {$/;"	f	typeref:typename:int
 yyparse	lrparser.c	/^void yyparse() {$/;"	f	typeref:typename:void
-yyvalue	lrparser.c	/^double yyvalue;$/;"	v	typeref:typename:double
+yytype	lrparser.c	/^int yytype;$/;"	v	typeref:typename:int
+yyvalue	lrparser.c	/^int yyvalue;$/;"	v	typeref:typename:int
+yywarning	lrparser.c	/^void yywarning(char *msg) {$/;"	f	typeref:typename:void
