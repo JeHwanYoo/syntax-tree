@@ -26,15 +26,13 @@ typedef struct node {NODE_NAME name; int val; struct node *left; struct node *ri
 #define TK_START 256 // the start number of token
 #define ST_SIZE 1000
 
-// extern NODE *value[1000];
-
 extern const int action[NUM_SYM][NUM_TK];
 extern const int go_to[NUM_SYM][NUM_RULE];
 extern const int prod_left[NUM_TK + 1];
 extern const int prod_length[NUM_TK + 1];
 
 extern int stack[ST_SIZE];
-extern int value[ST_SIZE];
+extern NODE *value[ST_SIZE];
 extern char yybuffer[ST_SIZE];
 extern int pos; // input position
 extern int top;
@@ -52,5 +50,9 @@ void yyparse();
 int yylex();
 
 NODE *makenode(NODE_NAME name, int v, NODE *left, NODE *right);
+void print_tree_postorder(NODE *n);
+void print_node_name_as_string(NODE_NAME name, char *label);
+void free_tree(NODE *n);
+
 #endif
 
