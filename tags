@@ -1,0 +1,63 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	//
+$(TARGET)	Makefile	/^$(TARGET): $(OBJECTS)$/;"	t
+$(call OBJ, 1)	Makefile	/^$(call OBJ, 1): $(call CPP, 1) $(call HEADER, 1) $/;"	t
+$(call OBJ, 2)	Makefile	/^$(call OBJ, 2): $(call CPP, 2) $(call HEADER, 1)$/;"	t
+ACC	lrparser.h	/^#define ACC /;"	d
+CFLAGS	Makefile	/^CFLAGS = -c$/;"	m
+COMPILE	Makefile	/^COMPILE = $(CC) $(CFLAGS) $< -o $@$/;"	m
+CPP	Makefile	/^CPP = $(word $(1), $(SOURCES)).c$/;"	m
+END	lrparser.h	/^	END,$/;"	e	enum:token
+EXPRESSION	lrparser.h	/^	EXPRESSION = 0,$/;"	e	enum:symbol
+FACTOR	lrparser.h	/^	FACTOR,$/;"	e	enum:symbol
+HEADER	Makefile	/^HEADER = $(word $(1), $(HEADERS))$/;"	m
+HEADERS	Makefile	/^HEADERS = lrparser.h$/;"	m
+LPAREN	lrparser.h	/^	LPAREN,$/;"	e	enum:token
+NUMBER	lrparser.h	/^	NUMBER = 256,$/;"	e	enum:token
+NUM_RULE	lrparser.h	/^#define NUM_RULE /;"	d
+NUM_SYM	lrparser.h	/^#define NUM_SYM /;"	d
+NUM_TK	lrparser.h	/^#define NUM_TK /;"	d
+OBJ	Makefile	/^	OBJ = debug\/$(word $(1), $(SOURCES)).o$/;"	m
+OBJ	Makefile	/^OBJ = $(word $(1), $(SOURCES)).o$/;"	m
+OBJECTS	Makefile	/^	OBJECTS = $(foreach s, $(SOURCES), debug\/$(s).o)$/;"	m
+OBJECTS	Makefile	/^OBJECTS = $(foreach s, $(SOURCES), $(s).o)$/;"	m
+PLUS	lrparser.h	/^	PLUS,$/;"	e	enum:token
+RPAREN	lrparser.h	/^	RPAREN,$/;"	e	enum:token
+SOURCES	Makefile	/^SOURCES = main lrparser$/;"	m
+STAR	lrparser.h	/^	STAR,$/;"	e	enum:token
+ST_SIZE	lrparser.h	/^#define ST_SIZE /;"	d
+TARGET	Makefile	/^	TARGET = lrparser-debug$/;"	m
+TARGET	Makefile	/^TARGET = lrparser$/;"	m
+TERM	lrparser.h	/^	TERM,$/;"	e	enum:symbol
+TK_START	lrparser.h	/^#define TK_START /;"	d
+__LRPARSER_H	lrparser.h	/^#define __LRPARSER_H$/;"	d
+action	lrparser.c	/^const int action[NUM_SYM][NUM_TK] = {$/;"	v	typeref:typename:const int[][]
+all	Makefile	/^all : $(TARGET)$/;"	t
+ch	lrparser.c	/^static char ch = ' ';$/;"	v	typeref:typename:char	file:
+clean	Makefile	/^clean:$/;"	t
+cleand	Makefile	/^cleand:$/;"	t
+echo	Makefile	/^echo:$/;"	t
+go_to	lrparser.c	/^const int go_to[NUM_SYM][NUM_RULE] = {$/;"	v	typeref:typename:const int[][]
+lexerr	lrparser.c	/^void lexerr(char *msg) {$/;"	f	typeref:typename:void
+main	main.c	/^int main(void) {$/;"	f	typeref:typename:int
+prod_left	lrparser.c	/^const int prod_left[NUM_TK+1] = {0, EXPRESSION, EXPRESSION, TERM, TERM, FACTOR, FACTOR};$/;"	v	typeref:typename:const int[]
+prod_length	lrparser.c	/^const int prod_length[NUM_TK+1] = {0, 3, 1, 3, 1, 3, 1};$/;"	v	typeref:typename:const int[]
+push	lrparser.c	/^void push(int i) {$/;"	f	typeref:typename:void
+reduce	lrparser.c	/^void reduce(int i) {$/;"	f	typeref:typename:void
+shift	lrparser.c	/^void shift(int i) {$/;"	f	typeref:typename:void
+stack	lrparser.c	/^int stack[ST_SIZE];$/;"	v	typeref:typename:int[]
+sym	lrparser.c	/^int sym;$/;"	v	typeref:typename:int
+symbol	lrparser.h	/^enum symbol {$/;"	g
+token	lrparser.h	/^enum token {$/;"	g
+top	lrparser.c	/^int top = -1;$/;"	v	typeref:typename:int
+value	lrparser.c	/^int value[ST_SIZE];$/;"	v	typeref:typename:int[]
+yybuffer	lrparser.c	/^char yybuffer[ST_SIZE];$/;"	v	typeref:typename:char[]
+yyerr	lrparser.c	/^void yyerr(char *msg) {$/;"	f	typeref:typename:void
+yylex	lrparser.c	/^int yylex() {$/;"	f	typeref:typename:int
+yyparse	lrparser.c	/^void yyparse() {$/;"	f	typeref:typename:void
+yyvalue	lrparser.c	/^double yyvalue;$/;"	v	typeref:typename:double
