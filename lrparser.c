@@ -40,14 +40,11 @@ void push(int i) {
 
 void shift(int i) {
 	push(i);
-	if (sym == NUMBER) {
-		value[top] = makenode(INT_VAL, yyvalue, NULL, NULL);
-	}
 	sym = yylex();
 }
 
 void reduce(int i) {
-	int old_top;
+	int old_top, tmpval;
 	char buf[30];
 	top -= prod_length[i];
 	old_top = top;
@@ -63,7 +60,7 @@ void reduce(int i) {
 						break;
 		case 5: value[top] = value[old_top+2];
 						break;
-		case 6: value[top] = makenode(INT_VAL, value[old_top+1]->val, NULL, NULL);
+		case 6: value[top] = makenode(INT_VAL, yyvalue, NULL, NULL);
 						break;
 		default: sprintf(buf, "Reduce(%d) Error", i);
 						 yyerr(buf);
